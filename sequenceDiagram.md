@@ -1,4 +1,4 @@
-# Sequence Diagram — Bookify
+# Sequence Diagram
 
 ## Main Flow: End-to-End Book Purchase (Browse → Add to Cart → Checkout → Order Fulfillment)
 

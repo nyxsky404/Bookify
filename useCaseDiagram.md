@@ -1,4 +1,4 @@
-# Use Case Diagram — Bookify
+# Use Case Diagram
 
 ## Overview
 

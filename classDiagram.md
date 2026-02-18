@@ -1,4 +1,4 @@
-# Class Diagram — Bookify
+# Class Diagram
 
 ## Overview
 

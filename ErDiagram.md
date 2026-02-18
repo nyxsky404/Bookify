@@ -1,4 +1,4 @@
-# ER Diagram — Bookify
+# ER Diagram
 
 ## Overview
 

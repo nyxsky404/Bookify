@@ -1,4 +1,4 @@
-# Bookify — Online Bookstore E-Commerce Platform
+# Bookify
 
 ## Overview
 
