@@ -9,27 +9,20 @@ class DatabaseConnection {
   private constructor() {
     const connectionString = process.env.DATABASE_URL;
     if (!connectionString) {
-      console.error('ERROR: DATABASE_URL environment variable is not set');
       throw new Error('DATABASE_URL environment variable is not set');
     }
-    try {
-      const dbUrl = new URL(connectionString);
-      const sslMode = dbUrl.searchParams.get('sslmode');
-      const client = postgres({
-        host: dbUrl.hostname,
-        port: dbUrl.port ? parseInt(dbUrl.port, 10) : 5432,
-        database: dbUrl.pathname.replace(/^\//, ''),
-        username: decodeURIComponent(dbUrl.username),
-        password: decodeURIComponent(dbUrl.password),
-        ssl: sslMode === 'require' ? 'require' : sslMode === 'disable' ? false : undefined,
-        prepare: false,
-      });
-      this.db = drizzle({ client, schema });
-      console.log('Database connected successfully');
-    } catch (err) {
-      console.error('Failed to connect to database:', err);
-      throw err;
-    }
+    const dbUrl = new URL(connectionString);
+    const sslMode = dbUrl.searchParams.get('sslmode');
+    const client = postgres({
+      host: dbUrl.hostname,
+      port: dbUrl.port ? parseInt(dbUrl.port, 10) : 5432,
+      database: dbUrl.pathname.replace(/^\//, ''),
+      username: decodeURIComponent(dbUrl.username),
+      password: decodeURIComponent(dbUrl.password),
+      ssl: sslMode === 'require' ? 'require' : sslMode === 'disable' ? false : undefined,
+      prepare: false,
+    });
+    this.db = drizzle({ client, schema });
   }
 
   static getInstance(): DatabaseConnection {

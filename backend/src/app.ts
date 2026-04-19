@@ -74,14 +74,14 @@ export function createApp() {
 
   app.get('/health', (_req, res) => res.json({ status: 'ok', timestamp: new Date().toISOString() }));
 
-  app.use('/auth', createAuthRouter(authController));
-  app.use('/users', createUserRouter(userController));
-  app.use('/books', createBookRouter(bookController));
-  app.use('/categories', createCategoryRouter(categoryController));
-  app.use('/cart', createCartRouter(cartController));
-  app.use('/orders', createOrderRouter(orderController));
-  app.use('/notifications', createNotificationRouter(notificationController));
-  app.use('/analytics', createAnalyticsRouter(analyticsController));
+  app.use('/api/auth', createAuthRouter(authController));
+  app.use('/api/users', createUserRouter(userController));
+  app.use('/api/books', createBookRouter(bookController));
+  app.use('/api/categories', createCategoryRouter(categoryController));
+  app.use('/api/cart', createCartRouter(cartController));
+  app.use('/api/orders', createOrderRouter(orderController));
+  app.use('/api/notifications', createNotificationRouter(notificationController));
+  app.use('/api/analytics', createAnalyticsRouter(analyticsController));
 
   app.use(errorHandler);
 
